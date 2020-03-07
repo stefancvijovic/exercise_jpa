@@ -10,32 +10,46 @@ import javax.persistence.OneToMany;
 @Entity
 public class Department {
 	@Id
-	@Column (name = "department_id")
+	@Column(name = "DEPARTMENT_ID")
+	private long id;
+	@Column (unique = true)
 	private String name;
-	@OneToMany //dodati
-	private List<Professor> professor;
 	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public List<Professor> getProfessor() {
-		return professor;
-	}
-	public void setProfessor(List<Professor> professor) {
-		this.professor = professor;
-	}
-	public Department(String name, List<Professor> professor) {
+	
+	public Department(long id, String name) {
 		super();
+		this.id = id;
 		this.name = name;
-		this.professor = professor;
 	}
 	public Department() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	@Override
+	public String toString() {
+		return "Department [id=" + id + ", name=" + name + "]";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
